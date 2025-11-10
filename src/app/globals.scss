@@ -1,0 +1,48 @@
+@use "tailwindcss";
+@use 'styles/themes.scss';
+@use './styles/selenized.light.scss' as light;
+@use './styles/selenized.dark.scss' as dark;
+@use './styles/selenized.black.scss' as black;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .bg-primary {
+    background-color: var(--bg-primary);
+  }
+  .bg-secondary {
+    background-color: var(--bg-secondary);
+  }
+  .bg-tertiary {
+    background-color: var(--bg-tertiary);
+  }
+  .text-primary {
+    color: var(--text-primary);
+  }
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+  .border-theme {
+    border-color: var(--border);
+  }
+  .accent {
+    color: var(--accent);
+  }
+  .bg-highlight {
+    background-color: var(--bg-highlight);
+  }
+
+  pre {
+    background-color: var(--bg-secondary) !important;
+    border-radius: 0.375rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  pre code {
+    background-color: transparent !important;
+  }
+}
