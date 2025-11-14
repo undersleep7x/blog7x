@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import IDELayout from "@/app/components/IDELayout";
-import {getAllPosts} from "@/lib/posts";
-import { ThemeProvider } from '../app/components/ThemeProvider';
+import { getAllPosts } from "@/lib/posts";
+import { ThemeProvider } from "../app/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "sleep_deprived",
@@ -14,14 +14,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-    const posts = getAllPosts();
-    return (
-        <html lang="en" className="theme-light">
-            <body>
-                <ThemeProvider>
-                    <IDELayout posts={posts}>{children}</IDELayout>
-                </ThemeProvider>
-            </body>
-        </html>
+  const posts = getAllPosts();
+  return (
+    <html lang="en" className="theme-dark">
+      <body>
+        <ThemeProvider>
+          <IDELayout posts={posts}>{children}</IDELayout>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
