@@ -8,7 +8,7 @@ export async function generateStaicParams() {
 }
 
 export default async function PostPage({params}: {params: {slug: string}}) {
-    const {slug} = await params
+    const {slug} = params
     const post = await getPostBySlug(slug)
 
     return (
