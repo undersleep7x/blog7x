@@ -34,7 +34,7 @@ export default function About() {
 
         <div>
           <h2 className="text-2xl font-bold mb-2">
-            Ok so? We all have ideas. Why are yours so special?
+            Ok? We all have ideas. Why are yours so special?
           </h2>
           <p>
             It&apos;s less that my ideas are special, rather, all ideas are
@@ -49,51 +49,27 @@ export default function About() {
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-2">
-            So how many baskets is your mental hand in?
-          </h2>
+          <h2 className="text-2xl font-bold mb-2">But why a blog?</h2>
           <p>
-            There&apos;s a Youtube converter I&apos;m building with Rust as an
-            avenue of learning, and because I got tired of having to always go
-            to a random website to grab some content. Speaking of Youtube, a
-            video about pihole found it&apos;s way onto my recommended page and
-            now I&apos;ve got a homelab automating my file backups, hosting my
-            own git instance, and running the Minecraft server I always wanted
-            in middle school. The homelab is running Proxmox and I used the
-            virtual machines to toy around with other Linux distros, now
-            there&apos;s a laptop that serves as my Arch Linux nuclear testing
-            ground in the corner of my room. Picking up more web development
-            practice from building out websites for friends and family,
-            exploring self-hosted AI servers now that the homelab bug has bitten
-            me, nursing this insane idea of creating Venmo for cryptocurrencies,
-            and another 3 open source projects I&apos;m working on that I&apos;m
-            not ready to talk about yet. This blog is a project as well, custom
-            built by myself using Neovim, which I just started learning and
-            configuring in October 2025.
+            There&apos;s a few reasons ranging from atrophying writing skills to
+            boredom, if you can believe it. Fundamentally though, I wanted a
+            place to share my experience. I&apos;m by no means some extreme
+            unique circumstance, but my education, interests, and challenges
+            have created an uncommon profile for the spaces I find myself
+            learning, growing, and excelling in. I want this blog to serve as a
+            trail for the journey I take; if not for others to follow and be
+            inspired by, at least for my own reflection. Like journaling, except
+            I spent a weekend building a blog instead of buying a notebook from
+            Dollar Tree.
           </p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-bold mb-2">.....Do you sleep?</h2>
-          <p>No, hence the name.</p>
+          <p className="mt-3">I also needed more stuff on my github.</p>
         </div>
 
         <div>
           <h2 className="text-2xl font-bold mb-2">
-            So why the blog? Seems too social for an Arch Linux/Neovim user
+            Where&apos;d the name come from?
           </h2>
-          <p>
-            Fair point. There&apos;s a few reasons ranging from atrophying
-            writing skills to boredom, if you can believe it. Fundamentally
-            though, I wanted a place to share my experience. I&apos;m by no
-            means some extreme unique circumstance, but my education, interests,
-            and challenges have created an uncommon profile for the spaces I
-            find myself learning, growing, and excelling in. I want this blog to
-            serve as a trail for the journey I take; if not for others to follow
-            and be inspired by, at least for my own reflection. Like journaling,
-            except I spent a weekend building a blog instead of buying a
-            notebook from Dollar Tree.
-          </p>
+          <p>I have a bad habit of staying up past by bedtime.</p>
         </div>
 
         <div>

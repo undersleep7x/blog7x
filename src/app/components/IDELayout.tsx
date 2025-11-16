@@ -1,31 +1,56 @@
 'use client'
 
-import { ReactNode, useState } from 'react';
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
-import Sidebar from "@/app/components/Sidebar";
+import {ReactNode, useEffect, useState} from 'react'
+import Navbar from '@/app/components/Navbar'
+import BottomBar from '@/app/components/BottomBar'
+import Sidebar from '@/app/components/Sidebar'
+import SearchModal from './SearchModal'
+import {Post} from '../../lib/posts'
 
 interface IDELayoutProps {
-    children: ReactNode;
-    posts: any[];
+    children: ReactNode
+    posts: Omit<Post, 'content'>[]
 }
 
-export default function IDELayout({ children, posts }: IDELayoutProps) {
-    const [sidebarOpen, setSidebarOpen] = useState(true);
+export default function IDELayout({children, posts}: IDELayoutProps) {
+    const [sidebarOpen, setSidebarOpen] = useState(true)
+    const [searchOpen, setSearchOpen] = useState(false)
+    const latestPostSlug = posts[0].slug
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault()
+                setSearchOpen(true)
+            }
+        }
+
+        if (!searchOpen) {
+            document.addEventListener('keydown', handleKeyDown)
+            return () => document.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [searchOpen])
 
     return (
         <div className="h-screen flex flex-col">
-            {/* top nav bar */}
-            <Navbar sidebarOpen={sidebarOpen} onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+            <Navbar
+                sidebarOpen={sidebarOpen}
+                onOpenSearch={() => setSearchOpen(true)}
+                onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+            />
 
             <div className="flex-1 flex overflow-hidden">
-                <Sidebar isOpen={sidebarOpen} posts={posts} />
-                <div className="flex-1 overflow-y-auto bg-primary text-primary p-8">
+                <div className="hidden md:flex">
+                    <Sidebar isOpen={sidebarOpen} posts={posts} />
+                </div>
+                <div className="flex-1 overflow-y-auto bg-primary text-primary p-8 scroll-container">
                     {children}
                 </div>
             </div>
 
-            <Footer />
+            <BottomBar posts={posts} latestPostSlug={latestPostSlug} />
+
+            <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} posts={posts} />
         </div>
     )
 }
