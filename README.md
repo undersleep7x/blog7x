@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# sleepDeprived Blog
 
-## Getting Started
+Personal tech blog built with Astro.
 
-First, run the development server:
+## Tech Stack
+
+- **Astro 5** - Static site generator
+- **React 18** - Interactive components
+- **Tailwind CSS 4** - Styling
+- **TypeScript** - Type safety
+- **Markdown** - Content (via Astro Content Collections)
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:4321`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run preview
+```
 
-## Learn More
+## Adding Posts
 
-To learn more about Next.js, take a look at the following resources:
+Create a new folder in `src/content/posts/`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/content/posts/my-new-post/
+├── index.md
+└── images/  (optional)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Frontmatter format:
 
-## Deploy on Vercel
+```md
+---
+title: 'Post Title'
+tagline: 'Short description'
+date: '2025-12-14'
+tags: ['tag1', 'tag2']
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Your content here...
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Features
+
+- Dark/Light theme toggle
+- File tree navigation by date
+- Keyboard shortcuts (Ctrl+K search, Ctrl+H home, Ctrl+N latest)
+- Syntax highlighting
+- Responsive design
+
+## License
+
+Licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
+
+**You are free to:**
+
+- Use, modify, and distribute this code
+- Use it commercially
+
+**Under these terms:**
+
+- Any derivative work must also be open source under GPL-3.0
+- Must preserve this license and provide source code
