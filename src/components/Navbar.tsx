@@ -1,7 +1,5 @@
-import Image from 'next/image'
 import {GitBranch, Search, Sun, Moon, LightbulbOff} from 'lucide-react'
 import {useTheme} from './ThemeProvider'
-import Link from 'next/link'
 
 interface NavBarProps {
     onToggleSidebar: () => void
@@ -22,8 +20,8 @@ export default function Navbar({onToggleSidebar, sidebarOpen, onOpenSearch}: Nav
                 </button>
             </div>
             <div className="flex-1 flex px-3 items-center gap-4 text-primary">
-                <Link href={'/'} className="flex items-center gap-4">
-                    <Image
+                <a href={'/'} className="flex items-center gap-4">
+                    <img
                         src="/logo.png"
                         alt="Logo"
                         width="48"
@@ -33,7 +31,7 @@ export default function Navbar({onToggleSidebar, sidebarOpen, onOpenSearch}: Nav
                     <span className="font-bold font-mono sm:text-sm md:text-xl -ml-4">
                         sleepDeprived
                     </span>
-                </Link>
+                </a>
                 <button
                     className="hover:underline hidden md:block"
                     onClick={() =>
@@ -53,38 +51,20 @@ export default function Navbar({onToggleSidebar, sidebarOpen, onOpenSearch}: Nav
             <div className="flex text-primary">
                 <div className="flex items-center gap-0 mr-2">
                     <button
-                        className="px-2 py-1 rounded text-sm text-primary transition-colors"
-                        onMouseEnter={(e) =>
-                            (e.currentTarget.style.backgroundColor = 'var(--bg-tertiary)')
-                        }
-                        onMouseLeave={(e) =>
-                            (e.currentTarget.style.backgroundColor = 'transparent')
-                        }
+                        className="px-2 py-1 rounded text-sm hover:bg-tertiary text-primary transition-colors"
                         onClick={onOpenSearch}
                     >
                         <Search className="w-5 h-5 text-secondary" />
                     </button>
                     <button
                         onClick={() => setTheme('light')}
-                        className="px-2 py-1 rounded text-sm text-primary transition-colors"
-                        onMouseEnter={(e) =>
-                            (e.currentTarget.style.backgroundColor = 'var(--bg-tertiary)')
-                        }
-                        onMouseLeave={(e) =>
-                            (e.currentTarget.style.backgroundColor = 'transparent')
-                        }
+                        className="px-2 py-1 rounded hover:bg-tertiary text-sm text-primary transition-colors"
                     >
                         <Sun className="w-5 h-5 text-secondary" />
                     </button>
                     <button
                         onClick={() => setTheme('dark')}
-                        className="px-2 py-1 rounded text-sm text-primary transition-colors"
-                        onMouseEnter={(e) =>
-                            (e.currentTarget.style.backgroundColor = 'var(--bg-tertiary)')
-                        }
-                        onMouseLeave={(e) =>
-                            (e.currentTarget.style.backgroundColor = 'transparent')
-                        }
+                        className="px-2 py-1 rounded text-sm hover:bg-tertiary text-primary transition-colors"
                     >
                         <Moon className="w-5 h-5 text-secondary" />
                     </button>

@@ -1,0 +1,43 @@
+---
+import '@/styles/globals.scss';
+import IDELayout from '../components/IDELayout';
+import { getCollection } from 'astro:content';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'sleepDeprived', description = 'tech talk from undersleep7x' } = Astro.props;
+
+const allPosts = await getCollection('posts');
+const posts = allPosts
+  .map(post => ({
+    slug: post.slug,
+    title: post.data.title,
+    date: post.data.date,
+    tags: post.data.tags,
+    tagline: post.data.tagline,
+  }))
+  .sort((a, b) => (a.date < b.date ? 1 : -1));
+---
+
+<!DOCTYPE html>
+<html lang="en" class="min-h-screen min-w-screen bg-primary theme-dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <IDELayout posts={posts} client:only="react">
+      <slot />
+    </IDELayout>
+  </body>
+</html>

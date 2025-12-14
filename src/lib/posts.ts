@@ -1,4 +1,4 @@
-import fs from 'fs'
+/* import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { remark } from 'remark'
@@ -60,4 +60,5 @@ export function getAllPosts(): Omit<Post, 'content'>[] {
     });
 
     return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
-}
+} */
+

@@ -1,8 +1,12 @@
-'use client'
-
-import {Post} from '@/lib/posts'
-import {usePathname, useRouter} from 'next/navigation'
 import {useEffect, useState} from 'react'
+
+interface Post {
+    slug: string
+    title: string
+    date: string
+    tags: string[]
+    tagline: string
+}
 
 interface BottomBarProps {
     latestPostSlug: string
@@ -10,25 +14,28 @@ interface BottomBarProps {
 }
 
 export default function BottomBar({latestPostSlug, posts}: BottomBarProps) {
-    const pathname = usePathname()
-    const router = useRouter()
+    const [pathname, setPathname] = useState('')
     const [scrollProgress, setScrollProgress] = useState(100)
+
+    useEffect(() => {
+        setPathname(window.location.pathname)
+    }, [])
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if ((e.metaKey || e.ctrlKey) && e.key === 'h') {
                 e.preventDefault()
-                router.push('/')
+                window.location.href = '/'
             }
             if ((e.metaKey || e.ctrlKey) && e.key === 'n' && latestPostSlug) {
                 e.preventDefault()
-                router.push(`/posts/${latestPostSlug}`)
+                window.location.href = `/posts/${latestPostSlug}`
             }
         }
 
         document.addEventListener('keydown', handleKeyDown)
         return () => document.removeEventListener('keydown', handleKeyDown)
-    }, [router, latestPostSlug])
+    }, [latestPostSlug])
 
     useEffect(() => {
         const handleScroll = () => {
@@ -88,7 +95,8 @@ export default function BottomBar({latestPostSlug, posts}: BottomBarProps) {
             <div className="flex-1" />
             <span className="mr-4">{scrollProgress}%</span>
             <span className="hidden md:block mr-4">Ctrl+H › Home</span>
-            <span className="hidden md:block">Ctrl+N › Latest Post</span>{' '}
+            <span className="hidden md:block mr-4">Ctrl+N › Latest Post</span>{' '}
+            <span className="hidden md:block">Ctrl+K › Search</span>{' '}
         </div>
     )
 }

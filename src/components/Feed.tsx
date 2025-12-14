@@ -1,6 +1,4 @@
-'use client'
-
-import Link from 'next/link'
+import Footer from './Footer'
 
 interface Post {
     slug: string
@@ -19,12 +17,12 @@ export default function Feed({posts}: {posts: Post[]}) {
                     className="p-4 rounded-lg"
                     style={{border: '1px solid var(--border)'}}
                 >
-                    <Link
+                    <a
                         href={`/posts/${post.slug}`}
                         className="text-2xl font-bold hover:underline block"
                     >
                         {post.title}
-                    </Link>
+                    </a>
                     {post.tagline && <p className="text-primary mb-4">{post.tagline}</p>}
                     <div className="font-mono text-secondary text-xs mb-2">{post.date}</div>
                     <div className="font-mono flex gap-2 mb-4">
@@ -35,19 +33,22 @@ export default function Feed({posts}: {posts: Post[]}) {
                         ))}
                     </div>
                     <div className="flex justify-end">
-                        <Link
+                        <a
                             href={`/posts/${post.slug}`}
                             className="inline-block px-4 py-2 bg-tertiary rounded text-sm transition-colors"
                             onMouseEnter={(e) =>
                                 (e.currentTarget.style.color = 'var(--text-secondary)')
                             }
-                            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--accent)')}
+                            onMouseLeave={(e) =>
+                                (e.currentTarget.style.color = 'var(--text-primary)')
+                            }
                         >
                             Read More →
-                        </Link>
+                        </a>
                     </div>
                 </div>
             ))}
+            <Footer />
         </div>
     )
 }

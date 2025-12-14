@@ -1,8 +1,4 @@
-'use client'
-
 import {useState, useEffect, useMemo, useRef} from 'react'
-import {useRouter} from 'next/navigation'
-import Link from 'next/link'
 
 interface Post {
     slug: string
@@ -23,7 +19,6 @@ export default function SearchModal({isOpen, onClose, posts}: SearchModalProps) 
     const [selectedIndex, setSelectedIndex] = useState(0)
     const selectedIndexRef = useRef(0)
     const resultsRef = useRef<Post[]>([])
-    const router = useRouter()
     const containerRef = useRef<HTMLDivElement>(null)
 
     const results = useMemo(() => {
@@ -74,7 +69,7 @@ export default function SearchModal({isOpen, onClose, posts}: SearchModalProps) 
                 e.preventDefault()
                 const selected = currentResults[selectedIndexRef.current]
                 if (selected) {
-                    router.push(`/posts/${selected.slug}`)
+                    window.location.href = `/posts/${selected.slug}`
                     onClose()
                 }
             }
@@ -84,7 +79,7 @@ export default function SearchModal({isOpen, onClose, posts}: SearchModalProps) 
             document.addEventListener('keydown', handleKeyDown)
             return () => document.removeEventListener('keydown', handleKeyDown)
         }
-    }, [isOpen, onClose, router])
+    }, [isOpen, onClose])
 
     useEffect(() => {
         if (containerRef.current) {
@@ -97,7 +92,7 @@ export default function SearchModal({isOpen, onClose, posts}: SearchModalProps) 
 
     return (
         <div
-            className="fixed inset-0 bg-black/50 z-50 flex items-start justify-center pt-82"
+            className="fixed inset-0 bg-black/50 z-50 flex items-start justify-center pt-20"
             onClick={onClose}
         >
             <div
@@ -121,17 +116,13 @@ export default function SearchModal({isOpen, onClose, posts}: SearchModalProps) 
                         </div>
                     )}
                     {results.map((post, index) => (
-                        <Link
+                        <a
                             key={post.slug}
                             href={`posts/${post.slug}`}
                             onClick={onClose}
-                            onMouseEnter={(e) =>
-                                (e.currentTarget.style.backgroundColor = 'var(--bg-primary)')
-                            }
-                            onMouseLeave={(e) =>
-                                (e.currentTarget.style.backgroundColor = 'var(--bg-secondary)')
-                            }
-                            className={`block p-4 hover:bg-tertiary transition-colors border-b border-theme last:border-b-0
+                            onMouseEnter={() => setSelectedIndex(index)}
+                            onMouseLeave={() => setSelectedIndex(-1)}
+                            className={`block p-4 transition-colors border-b border-theme last:border-b-0
                                         ${index === selectedIndex ? 'bg-primary' : 'bg-secondary'}`}
                         >
                             <h3 className="text-primary font-bold mb-1">{post.title}</h3>
@@ -146,7 +137,7 @@ export default function SearchModal({isOpen, onClose, posts}: SearchModalProps) 
                                     </span>
                                 ))}
                             </div>
-                        </Link>
+                        </a>
                     ))}
                 </div>
                 <div className="hidden md:flex justify-end p-3 border-t border-theme text-xs text-secondary">

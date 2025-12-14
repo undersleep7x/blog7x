@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import {useState} from 'react'
 import {FileText, Folder} from 'lucide-react'
 
@@ -100,14 +99,14 @@ export default function FileTree({posts}: FileTreeProps) {
 
                                             {expandedMonths.has(yearMonth) &&
                                                 grouped[year][month].map((post) => (
-                                                    <Link
+                                                    <a
                                                         key={post.slug}
                                                         href={`/posts/${post.slug}`}
                                                         className="flex text-xs items-center py-1 px-2 ml-4 hover:underline text-primary"
                                                     >
                                                         <FileText className="text-sm w-4 h-4 mr-1" />{' '}
                                                         {post.title}
-                                                    </Link>
+                                                    </a>
                                                 ))}
                                         </div>
                                     )
@@ -117,4 +116,3 @@ export default function FileTree({posts}: FileTreeProps) {
         </div>
     )
 }
-

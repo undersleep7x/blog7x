@@ -1,24 +1,25 @@
-import Image from "next/image";
+---
+import Layout from '../layouts/Layout.astro';
+---
 
-export default function About() {
-  return (
-    <div className="max-w-4xl mx-auto p-8">
-      <h1 className="text-4xl font-bold mb-8">
+<Layout title="About">
+    <div class="max-w-4xl mx-auto p-8">
+      <h1 class="text-4xl font-bold mb-8">
         About undersleep7x (aka Emmanuel)
       </h1>
 
-      <div className="space-y-6 text-primary">
-        <Image
+      <div class="space-y-6 text-primary">
+        <img
           src="/about_me.png"
           alt="About me photo"
           width="300"
           height="300"
-          className="float-right ml-4 mb-4"
+          class="float-right ml-4 mb-4"
         />
         <div>
-          <div className="flex items-center">
-            <div className="flex flex-col justify-between">
-              <h2 className="text-2xl font-bold mb-2">Rapid fire bio, go!</h2>
+          <div class="flex items-center">
+            <div class="flex flex-col justify-between">
+              <h2 class="text-2xl font-bold mb-2">Rapid fire bio, go!</h2>
               <p>
                 I&apos;m a 24 year old software engineer in New York City and I
                 look like this. I like building things, like this blog, I write
@@ -33,7 +34,7 @@ export default function About() {
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-2">
+          <h2 class="text-2xl font-bold mb-2">
             Ok? We all have ideas. Why are yours so special?
           </h2>
           <p>
@@ -49,7 +50,7 @@ export default function About() {
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-2">But why a blog?</h2>
+          <h2 class="text-2xl font-bold mb-2">But why a blog?</h2>
           <p>
             There&apos;s a few reasons ranging from atrophying writing skills to
             boredom, if you can believe it. Fundamentally though, I wanted a
@@ -62,18 +63,18 @@ export default function About() {
             I spent a weekend building a blog instead of buying a notebook from
             Dollar Tree.
           </p>
-          <p className="mt-3">I also needed more stuff on my github.</p>
+          <p class="mt-3">I also needed more stuff on my github.</p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-2">
+          <h2 class="text-2xl font-bold mb-2">
             Where&apos;d the name come from?
           </h2>
           <p>I have a bad habit of staying up past by bedtime.</p>
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-2">Anything else?</h2>
+          <h2 class="text-2xl font-bold mb-2">Anything else?</h2>
           <p>
             I played basketball in high school and met Penny Hardaway at a camp
             one summer. He said I was nice.
@@ -81,5 +82,4 @@ export default function About() {
         </div>
       </div>
     </div>
-  );
-}
+</Layout>

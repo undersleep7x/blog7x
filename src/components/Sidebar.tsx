@@ -1,5 +1,12 @@
-import FileTree from '@/app/components/FileTree'
-import {Post} from '../../lib/posts'
+import FileTree from '@/components/FileTree'
+
+interface Post {
+    slug: string
+    title: string
+    date: string
+    tags: string[]
+    tagline: string
+}
 
 interface SidebarProps {
     isOpen: boolean
@@ -19,4 +26,3 @@ export default function Sidebar({isOpen, posts}: SidebarProps) {
         </div>
     )
 }
-
