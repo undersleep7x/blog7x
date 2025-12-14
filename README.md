@@ -1,6 +1,6 @@
-# sleepDeprived Blog
+# [sleepDeprived Blog](https://blog.undersleep7x.dev)
 
-Personal tech blog built with Astro.
+Personal tech blog built with Astro
 
 ## Tech Stack
 
