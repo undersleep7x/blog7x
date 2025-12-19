@@ -1,5 +1,3 @@
-import Footer from './Footer'
-
 interface Post {
     slug: string
     title: string
@@ -48,7 +46,6 @@ export default function Feed({posts}: {posts: Post[]}) {
                     </div>
                 </div>
             ))}
-            <Footer />
         </div>
     )
 }

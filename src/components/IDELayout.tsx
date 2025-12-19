@@ -50,7 +50,7 @@ export default function IDELayout({children, posts}: IDELayoutProps) {
                     <div className="hidden md:flex">
                         <Sidebar isOpen={sidebarOpen} posts={posts} />
                     </div>
-                    <div className="flex-1 overflow-y-auto bg-primary text-primary p-8 scroll-container">
+                    <div className="flex-1 overflow-y-auto bg-primary text-primary p-4 scroll-container">
                         {children}
                     </div>
                 </div>

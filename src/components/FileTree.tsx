@@ -62,6 +62,14 @@ export default function FileTree({posts}: FileTreeProps) {
 
     return (
         <div className="text-sm">
+            <a
+                href="/about"
+                className="flex text-xs items-center py-1 px-2 hover:bg-tertiary text-primary mb-2"
+            >
+                <FileText className="text-sm w-4 h-4 mr-1" />
+                about.md
+            </a>
+
             {Object.keys(grouped)
                 .sort()
                 .reverse()

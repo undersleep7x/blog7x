@@ -1,4 +1,4 @@
-import {Github, Linkedin, Mail, Twitter} from 'lucide-react'
+import {Github, Linkedin, Mail} from 'lucide-react'
 
 const Footer = () => {
     const socials = [
@@ -20,7 +20,7 @@ const Footer = () => {
     ]
 
     return (
-        <footer className="px-3 md:pt-4 flex-col flex md:pb-5 items-center md:flex-row md:justify-between">
+        <footer className="px-3 md:pt-4 flex-col flex items-center md:flex-row md:justify-between">
             <div className="w-full pt-1 flex justify-center md:w-auto">
                 <div className="flex gap-4 sm:gap-5 flex-nowrap">
                     {socials.map(({href, icon, hover}) => (
