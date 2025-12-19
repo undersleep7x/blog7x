@@ -1,0 +1,8 @@
+---
+services:
+    blog:
+        build: .
+        container_name: blog7x
+        restart: unless-stopped
+        ports:
+            - '3050:80'
